@@ -2,45 +2,56 @@
  * it may help to revisit your initial pa3 submission */
 
 const test_delay = (delay) => {
-  // TODO: Add tests
-
-  // Return false if this implementation is incorrect
-  return false;
+  let variable = false;
+  let t = delay(() => { variable = true; return 2; });
+  if (variable == true) return false;
+  if (force(t) != 2) return false;
+  if (variable != true) return false;
+  return true;
 };
 
 const test_enumFrom = (enumFrom) => {
-  // TODO: Add tests
-
-  // Return false if this implementation is incorrect
-  return false;
+  let x = enumFrom(42);
+  for (var i=42; i < 100; i++) {
+    if (force(x) != i) return false;
+  }
+  return true;
 };
 
 const test_map = (map) => {
-  // TODO: Add tests
-
-  // Return false if this implementation is incorrect
-  return false;
+  let x = enumFrom(42);
+  let y = map(a => a * a, x);
+  for (var i=42; i < 100; i++) {
+    if (force(x) != i * i) return false;
+  }
+  return true;
 };
 
 const test_zipWith = (zipWith) => {
-  // TODO: Add tests
-
-  // Return false if this implementation is incorrect
-  return false;
+  let x = enumFrom(42);
+  let y = enumFrom(0);
+  let mul = zipWith((a, b) => a * b, x, y);
+  for (var i=0; i < 100; i++) {
+    if (force(mul) != i * (i + 42)) return false;
+  }
+  return true;
 };
 
 const test_tail = (tail) => {
-  // TODO: Add tests
-
-  // Return false if this implementation is incorrect
-  return false;
+  let x = enumFrom(42);
+  let t = tail(x);
+  if (force(t) != 43) return false;
+  if (force(t) != 44) return false;
+  return true;
 };
 
 const test_cons = (cons) => {
-  // TODO: Add tests
-
-  // Return false if this implementation is incorrect
-  return false;
+  let x = enumFrom(42);
+  let t = cons(99, x);
+  if (force(t) != 99) return false;
+  if (force(t) != 42) return false;
+  if (force(t) != 43) return false;
+  return true;
 };
 
 exports.test_delay = test_delay;
